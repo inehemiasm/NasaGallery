@@ -10,10 +10,9 @@ import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
-
 @HiltViewModel
 class NasaImagesViewModel @Inject constructor(
-    private val getItemsUseCase: GetItemsUseCase,
+    private val getItemsUseCase: GetItemsUseCase
 ) : ViewModel() {
 
     private val _images = MutableStateFlow<ImagesUiState>(ImagesUiState.Loading)

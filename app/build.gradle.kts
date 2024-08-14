@@ -50,7 +50,6 @@ dependencies {
     implementation(libs.androidx.hilt.navigation.compose)
     implementation(libs.hilt.android)
     implementation(libs.hilt.android)
-    implementation(libs.androidx.runtime.livedata)
     ksp(libs.hilt.compiler)
     implementation(libs.retrofit)
     implementation(libs.converter.gson)
@@ -64,7 +63,6 @@ dependencies {
     implementation(libs.androidx.ui.graphics)
     implementation(libs.androidx.ui.tooling.preview)
     implementation(libs.androidx.material3)
-    implementation(libs.generativeai)
     implementation(libs.coil.compose)
 
     testImplementation(libs.junit)
