@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Nasa Gallery</string>
+    <string name="photographer">Photographer: %1$s</string>
+    <string name="title">Title</string>
+    <string name="search">Search</string>
+    <string name="go">Go</string>
+    <string name="location">Location: %1$s</string>
+    <string name="search_results">Search results for: %1$s</string>
+</resources>
