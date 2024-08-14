@@ -4,12 +4,12 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.nasagallery.domain.GetItemsUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
-private const val PAGE_SIZE = 20
 
 @HiltViewModel
 class NasaImagesViewModel @Inject constructor(
@@ -20,17 +20,15 @@ class NasaImagesViewModel @Inject constructor(
     val images: StateFlow<ImagesUiState> = _images
 
     private var currentQuery: String = ""
-    private var currentPageSize: Int = PAGE_SIZE
 
-    fun loadImages(query: String, pageSize: Int = PAGE_SIZE) {
+    fun loadImages(query: String) {
         if (query != currentQuery) {
             currentQuery = query
-            currentPageSize = pageSize
             getItemsUseCase.resetPagination()
             _images.value = ImagesUiState.Loading
         }
 
-        viewModelScope.launch {
+        viewModelScope.launch(Dispatchers.IO) {
             val result = getItemsUseCase.execute(query)
             if (result.isSuccess) {
                 val newImages = result.getOrNull() ?: emptyList()

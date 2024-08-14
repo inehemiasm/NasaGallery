@@ -37,7 +37,7 @@ fun NasaImageDetailBottomSheet(
             Column(
                 modifier = Modifier
                     .fillMaxSize()
-                    .padding(16.dp)
+                    .padding(16.dp),
             ) {
                 Image(
                     painter = rememberAsyncImagePainter(nasaImageUIModel.thumbnailUrl),
@@ -78,6 +78,6 @@ fun NasaImageDetailBottomSheet(
                     modifier = Modifier.fillMaxWidth(),
                 )
             }
-        }
+        },
     )
 }
